@@ -18,7 +18,7 @@ AlgoTradingSystem is a modular, end-to-end algorithmic trading platform built us
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository
 
 ```bash
 git clone https://github.com/Nayan10001/AlgoTradingSystem.git
