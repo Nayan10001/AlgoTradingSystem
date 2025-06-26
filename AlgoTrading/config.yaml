@@ -1,0 +1,65 @@
+run_backtester: true
+run_ml_predictor: true
+stocks_to_track:
+- RELIANCE.NS
+- TCS.NS
+- INFY.NS
+- TATAMOTORS.NS
+- BAJFINANCE.NS
+- ADANIPORTS.NS
+- INDUSINDBK.NS
+- VEDL.NS
+- SAIL.NS
+- PNB.NS
+- JSWSTEEL.NS
+- HINDALCO.NS
+- SBIN.NS
+- TVSMOTOR.NS
+strategy_rules:
+  rsi_oversold_threshold: 45
+  rsi_overbought_threshold: 70
+  use_bb_for_buy: false
+  use_bb_for_sell: false
+  use_volume_for_buy: false
+  volume_ratio_min_buy: 1.1
+  ma_cross_confirms_sell: true
+  price_above_sma_long_for_buy: false
+indicators:
+  sma_short_period: 20
+  sma_long_period: 50
+  rsi_period: 14
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  bb_window: 20
+  bb_std_dev: 2
+  volume_ma_window: 20
+backtest:
+  commission_per_trade_percent: 0.1
+  slippage_percent: 0.05
+  initial_capital: 100000
+  capital_per_trade: 10000
+  period_months: 6
+  interval: 1d
+google_sheets:
+  enabled_for_app: true
+  backtest_trade_log_sheet_name: TradesLog
+  backtest_summary_sheet_name: BacktestSummary
+  ml_predictions_sheet_name: ML_Predictions
+  clear_trades_log_on_backtest: true
+  enabled_for_ml: true
+ml_predictor:
+  enabled: true
+  model_type: LogisticRegression
+  features:
+  - RSI
+  - MACD_hist
+  - VOLUME_RATIO
+  - BB_position
+  target_horizon: 1
+  test_size: 0.2
+  lr_solver: liblinear
+  gsheet_ml_predictions_log: ML_Predictions
+  gsheet_clear_ml_predictions_log: true
+  gsheet_ml_training_log: ML_Training_Log
+  gsheet_ml_summary: ML_Summary

@@ -1,0 +1,14 @@
+pandas
+numpy
+ta
+gspread
+google-auth
+python-dotenv
+PyYAML
+scikit-learn
+telethon
+google-generativeai
+schedule
+yfinance
+streamlit     
+plotly
